@@ -13,10 +13,10 @@
     "url": "git+https://github.com/zhitnyak/goit-js-hw-10-food-service.git"
   },
   "keywords": [],
-  "author": "Maksimka>",
+  "author": "Maksimka",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zhitnyak/goit-js-hw-10-food-service"
+    "url": "https://github.com/zhitnyak/goit-js-hw-10-food-service/issues"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
