@@ -1,5 +1,5 @@
 import './sass/main.scss';
-// import menuCards from './templates/menu-cards.hbs';
+import menuCards from './templates/menu-cards.hbs';
 import elMarkup from './menu.json';
 
 //Меняем тему
@@ -39,8 +39,17 @@ if (currentTheme === Theme.DARK) {
 const cardBox = document.querySelector('.js-menu');
 
 function createGallery(cards) {
-  return cards.map(e => menuCards(e)).join('');
+  return cards.map(menuCards).join('');
 }
 
 const cardMarkup = createGallery(elMarkup);
 cardBox.insertAdjacentHTML('beforeend', cardMarkup);
+
+// const cardMarkup = createGallery(cards);
+// const cardBox = document.querySelector('.js-menu');
+
+// function createGallery(cards) {
+//   return cards.map(menuCards).join('');
+// }
+
+// cardBox.insertAdjacentHTML('beforeend', cardMarkup);
