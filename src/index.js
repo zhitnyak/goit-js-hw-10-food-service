@@ -15,24 +15,26 @@ const Theme = {
 refs.switch.addEventListener('change', onCheckBoxChange);
 const STORAGE_KEY = 'theme';
 
-function onCheckBoxChange(evt) {
-  const checked = refs.switch.checked;
-
-  refs.body.classList.toggle(Theme.LIGHT);
-  refs.body.classList.toggle(Theme.DARK);
-
-  if (checked) {
-    localStorage.setItem('STORAGE_KEY', Theme.DARK);
-  } else {
-    localStorage.removeItem('STORAGE_KEY');
-    localStorage.setItem('STORAGE_KEY', Theme.LIGHT);
-  }
-}
 const currentTheme = localStorage.getItem('STORAGE_KEY');
 
 if (currentTheme === Theme.DARK) {
   refs.body.classList.add(Theme.DARK);
   refs.switch.checked = true;
+}
+
+function onThemeBodyChange(addClass, delClass) {
+  refs.body.classList.remove(delClass);
+  refs.body.classList.add(addClass);
+  localStorage.setItem('STORAGE_KEY', addClass);
+}
+
+function onCheckBoxChange(evt) {
+  const checked = refs.switch.checked;
+  if (checked) {
+    onThemeBodyChange(Theme.DARK, Theme.LIGHT);
+  } else {
+    onThemeBodyChange(Theme.LIGHT, Theme.DARK);
+  }
 }
 
 // Делаем разметку
@@ -44,12 +46,3 @@ function createGallery(cards) {
 
 const cardMarkup = createGallery(elMarkup);
 cardBox.insertAdjacentHTML('beforeend', cardMarkup);
-
-// const cardMarkup = createGallery(cards);
-// const cardBox = document.querySelector('.js-menu');
-
-// function createGallery(cards) {
-//   return cards.map(menuCards).join('');
-// }
-
-// cardBox.insertAdjacentHTML('beforeend', cardMarkup);
