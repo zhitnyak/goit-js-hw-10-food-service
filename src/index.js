@@ -20,6 +20,10 @@ const currentTheme = localStorage.getItem('STORAGE_KEY');
 if (currentTheme === Theme.DARK) {
   refs.body.classList.add(Theme.DARK);
   refs.switch.checked = true;
+} else {
+  currentTheme === Theme.LIGHT;
+  refs.body.classList.add(Theme.LIGHT);
+  refs.switch.checked = false;
 }
 
 function onThemeBodyChange(addClass, delClass) {
